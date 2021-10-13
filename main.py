@@ -1,6 +1,14 @@
 import math
 
 
+def verif_prime_digits(n: int) -> int:
+    while n != 0:
+        if is_prime(n % 10) is False:
+            return 0
+        n //= 10
+    return 1
+
+
 def is_prime(n: int) -> bool:
     if n <= 1 or n % 2 == 0 and n != 2:
         return False
@@ -35,6 +43,35 @@ def test_get_longest_all_primes():
 def test_get_longest_same_div_count():
     assert get_longest_same_div_count([2, 2, 2, 6]) == [2, 2, 2]
     assert get_longest_same_div_count([6, 8, 2, 6, 6, 6, 8]) == [6, 6, 6, 8]
+
+
+def test_get_longest_prime_digits():
+    assert get_longest_prime_digits([1, 2, 3, 4, 5, 73, 77, 72, 4]) == [5, 73, 77, 72]
+    assert get_longest_prime_digits([1, 2, 3, 4]) == [2, 3]
+
+
+def get_longest_prime_digits(final_list) -> list[int]:
+    verif = True
+    list_longest_prime_digits = []
+    first_final = 0
+    last_final = last = 0
+    maxim = -1
+    for index in range(0, len(final_list) - 1):
+        index_aux = index
+        first = index_aux
+        while verif_prime_digits(final_list[index]) == verif_prime_digits(final_list[index + 1]) and verif is True:
+            last = index + 1
+            if index < len(final_list) - 1:
+                index += 1
+            else:
+                verif = False
+        if last - first > maxim:
+            maxim = last - first
+            first_final = first
+            last_final = last
+    for index in range(first_final, last_final + 1):
+        list_longest_prime_digits.append(final_list[index])
+    return list_longest_prime_digits
 
 
 def get_longest_same_div_count(final_list) -> list[int]:
@@ -93,7 +130,8 @@ def main():
         1 citeste elementele multimii
         2 afiseaza cel mai mare sir de numere prime
         3 afiseaza cel mai mare sir cu numere cu acelasi divizori
-        4 iesi din program
+        4 afiseaza cea mai mare secventa in care numerele sunt formate doar din cifre prime
+        5 iesi din program
     """)
     while verif is True:
         opt = input("selecteaza optiunea ")
@@ -104,6 +142,8 @@ def main():
         elif opt == "3":
             print(get_longest_same_div_count(my_list))
         elif opt == "4":
+            print(get_longest_prime_digits(my_list))
+        elif opt == "5":
             print("Ati iesit din program")
             break
         else:
