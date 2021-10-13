@@ -1,6 +1,7 @@
 import math
 
-"""functia determina daca un numar este format sau nu doar din  numere prime"""
+# functia determina daca un numar este format sau nu doar din  numere prime
+# returneaza 0 in caz ca afirmatia este false si 1 daca este adevarata
 
 
 def verif_prime_digits(n: int) -> int:
@@ -11,8 +12,8 @@ def verif_prime_digits(n: int) -> int:
     return 1
 
 
-"""functia verifica daca un numar (n) este sau nu prim"""
-
+# functia verifica daca un numar (n) este sau nu prim
+# returneaza valoarea de adevar
 
 def is_prime(n: int) -> bool:
     if n <= 1 or n % 2 == 0 and n != 2:
@@ -23,8 +24,8 @@ def is_prime(n: int) -> bool:
     return True
 
 
-"""functia determina numarul de divizori ai unui numar (n)"""
-
+# functia determina numarul de divizori ai unui numar (n)
+# returneaza numarul de divizori
 
 def get_div(n: int) -> int:
     count_div = 0
@@ -58,8 +59,11 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([1, 2, 3, 4]) == [2, 3]
 
 
-"""functia afiseaza cea mai mare secventa de numere care au toate cifrele numere prime """
+# functia afiseaza cea mai mare secventa de numere care au toate cifrele numere prime 
 # prin imtermediul functieilist_longest_prime_digits
+# are ca parametrii first_final,last_final indexii capetelor multimii
+# maxim pentru a determina cea mai lunga secventa din sir
+# returneaza  list_longest_prime_digits, lista cu elementele cerute
 
 
 def get_longest_prime_digits(final_list) -> list[int]:
@@ -86,7 +90,10 @@ def get_longest_prime_digits(final_list) -> list[int]:
     return list_longest_prime_digits
 
 
-"""functia afiseaza cea mai mare secventa de numere care au acelasi numar de divizori"""
+# functia afiseaza cea mai mare secventa de numere care au acelasi numar de divizori
+# are ca parametrii first_final,last_final indexii capetelor multimii
+# maxim pentru a determina cea mai lunga secventa din sir
+# returneaza list_longest_same_div, lista cu elementele cerute
 
 
 def get_longest_same_div_count(final_list) -> list[int]:
@@ -113,8 +120,10 @@ def get_longest_same_div_count(final_list) -> list[int]:
     return list_longest_same_div
 
 
-"""functia afiseaza cea mai mare secventa de numere prime dintr o lista prin intermediul listei list_longest_primes """
-
+# functia returneaza cea mai mare secventa de numere prime dintr o lista prin intermediul listei list_longest_primes
+# are ca parametrii first_final,last_final indexii capetelor multimii
+# maxim pentru a determina cea mai lunga secventa din sir
+# returneaza  list_longest_primes, lista cu elementele cerute
 
 def get_longest_all_primes(final_list) -> list[int]:
     maxim = -1
