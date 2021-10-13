@@ -1,5 +1,7 @@
 import math
 
+"""functia determina daca un numar este format sau nu doar din  numere prime"""
+
 
 def verif_prime_digits(n: int) -> int:
     while n != 0:
@@ -9,6 +11,9 @@ def verif_prime_digits(n: int) -> int:
     return 1
 
 
+"""functia verifica daca un numar (n) este sau nu prim"""
+
+
 def is_prime(n: int) -> bool:
     if n <= 1 or n % 2 == 0 and n != 2:
         return False
@@ -16,6 +21,9 @@ def is_prime(n: int) -> bool:
         if n % index == 0:
             return False
     return True
+
+
+"""functia determina numarul de divizori ai unui numar (n)"""
 
 
 def get_div(n: int) -> int:
@@ -50,6 +58,10 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([1, 2, 3, 4]) == [2, 3]
 
 
+"""functia afiseaza cea mai mare secventa de numere care au toate cifrele numere prime """
+# prin imtermediul functieilist_longest_prime_digits
+
+
 def get_longest_prime_digits(final_list) -> list[int]:
     verif = True
     list_longest_prime_digits = []
@@ -74,6 +86,9 @@ def get_longest_prime_digits(final_list) -> list[int]:
     return list_longest_prime_digits
 
 
+"""functia afiseaza cea mai mare secventa de numere care au acelasi numar de divizori"""
+
+
 def get_longest_same_div_count(final_list) -> list[int]:
     verif = True
     maxim = -1
@@ -96,6 +111,9 @@ def get_longest_same_div_count(final_list) -> list[int]:
     for index in range(first_final, last_final + 1):
         list_longest_same_div.append(final_list[index])
     return list_longest_same_div
+
+
+"""functia afiseaza cea mai mare secventa de numere prime dintr o lista prin intermediul listei list_longest_primes """
 
 
 def get_longest_all_primes(final_list) -> list[int]:
